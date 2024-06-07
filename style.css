@@ -365,6 +365,12 @@ section.show {
     background-color: #000000;
 }
 
+@media (max-width: 768px) {
+    #particles-js {
+      display: none;
+    }
+  }
+
 .intro-content {
     position: relative;
     z-index: 2;
