@@ -9,6 +9,9 @@
 
 </head>
 <body>
+    <button id="darkModeToggle" aria-label="Toggle dark mode">
+        <i class="fas fa-moon"></i>
+    </button>
     <header>
         <nav>
             <ul>
@@ -27,15 +30,15 @@
             <div id="particles-js"></div>
             <div class="container">
                 <div class="intro-content">
-                    <h1>Welcome to My Portfolio</h1>
-                    <p>Hello! I'm Tanner Thurman, a Computer Science student at Western Kentucky University. Welcome to my online portfolio where you can find more about me and my work.</p>
-                    <a href="#portfolio" class="btn btn-primary">View My Work</a>
+                    <h1>Tanner Thurman</h1>
+                    <p>Associate Application Developer at VCLIC | CS Student at WKU | Full Stack & AI Enthusiast</p>
+                    <a href="#portfolio" class="btn btn-primary">View My Projects</a>
                 </div>
             </div>
         </section>
 
     <section id="portfolio">
-        <div class="container">
+        <div class="container fade-in-up">
             <h2>My Work</h2>
             <div class="project-grid">
                 <div class="project-item">
@@ -141,7 +144,7 @@
     </section>
 
     <section id="skills">
-        <div class="container">
+        <div class="container fade-in-up">
             <h2>Skills</h2>
             <div class="skills-container">
                 <div class="skill-row">
@@ -189,14 +192,29 @@
     </section>
 
     <section id="experience">
-        <div class="container">
+        <div class="container fade-in-up">
             <h2>Experience</h2>
             <div class="experience-grid">
                 <div class="experience-item">
                     <div class="experience-header">
+                        <h3>Associate Application Developer</h3>
+                        <p class="company">Vanderbilt Clinical Informatics Center</p>
+                        <p class="duration">8/24 - Present</p>
+                    </div>
+                    <div class="experience-details">
+                        <ul>
+                            <li>Developed and supported research and operational initiatives at VCLIC as an Associate Application Developer.</li>
+                            <li>Conducted full-stack development for both prototype and production applications.</li>
+                            <li>Participated as a key member of the research team, contributing to software design and architecture.</li>
+                            <li>Assisted in designing and implementing innovative software solutions for research projects.</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="experience-item">
+                    <div class="experience-header">
                         <h3>Full Stack Developer Intern</h3>
                         <p class="company">Knobull</p>
-                        <p class="duration">12/23 - Present</p>
+                        <p class="duration">12/23 - 7/24</p>
                     </div>
                     <div class="experience-details">
                         <ul>
@@ -225,7 +243,7 @@
     </section>
     
     <section id="education">
-        <div class="container">
+        <div class="container fade-in-up">
             <h2>My Education</h2>
             <div class="education-block">
                 <img src="images/wku-logo.png" alt="Western Kentucky University Logo" class="university-logo">
@@ -254,7 +272,7 @@
     </section>
 
     <section id="contact">
-        <div class="container">
+        <div class="container fade-in-up">
             <h2>Contact Me</h2>
             <div class="contact-content">
                 <div class="contact-info">
@@ -273,6 +291,10 @@
                         </a>
                         <a href="https://github.com/20Tsthurman" target="_blank" aria-label="Visit my GitHub">
                             <i class="fab fa-github"></i>
+                        </a>
+                        <a href="project-downloads/Tanner Resume.pdf" download class="btn btn-resume">
+                            <span class="btn-text">Download Resume</span>
+                            <span class="btn-icon"><i class="fas fa-file-download"></i></span>
                         </a>
                     </div>
                 </div>

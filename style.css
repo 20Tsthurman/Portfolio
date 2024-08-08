@@ -7,6 +7,65 @@ body {
     padding-top: 80px; /* Added padding to push content down */
   }
   
+  #darkModeToggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    color: #333;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+body.dark-mode {
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+}
+
+body.dark-mode header {
+    background-color: #2c2c2c;
+}
+
+body.dark-mode nav {
+    background-color: #333;
+}
+
+body.dark-mode nav ul li a {
+    color: #f0f0f0;
+}
+
+body.dark-mode .project-item,
+body.dark-mode .education-block,
+body.dark-mode .experience-item {
+    background-color: #2c2c2c;
+    color: #f0f0f0;
+}
+
+body.dark-mode .social-icons i {
+    color: #f0f0f0;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 50px, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fade-in-up {
+    opacity: 0;
+}
+
+.fade-in-up.animated {
+    animation: fadeInUp 0.6s ease-out forwards;
+}
+
   header {
     background-color: #8d8d8d;
     display: flex;
@@ -84,14 +143,16 @@ body {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 20px;
-  }
-  
-  #about {
+}
+
+#about {
     position: relative;
-    height: 80vh;
-    background-color: #000;
+    height: 50vh; /* Reduced height */
+    background-color: #1a1a1a; /* Darker background for a more professional look */
     overflow: hidden;
-  }
+    display: flex;
+    align-items: center;
+}
 
 #backgroundCanvas {
     position: absolute;
@@ -360,9 +421,11 @@ section.show {
 
 #particles-js {
     position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    background-color: #000000;
+    z-index: 0;
 }
 
 @media (max-width: 768px) {
@@ -371,26 +434,27 @@ section.show {
     }
   }
 
-.intro-content {
+  .intro-content {
     position: relative;
     z-index: 2;
     color: #fff;
     text-align: center;
-    padding-top: 200px;
 }
 
 .intro-content h1 {
-    font-family: 'Arial', sans-serif;
-    font-size: 48px;
-    margin-bottom: 20px;
+    font-size: 3rem;
+    margin-bottom: 10px;
+    font-weight: 700;
 }
 
 .intro-content p {
-    font-family: 'Verdana', sans-serif;
-    font-size: 24px;
+    font-size: 1rem;
     line-height: 1.5;
-    max-width: 800px;
-    margin: 0 auto;
+    margin-bottom: 20px;
+    font-weight: 300;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .contact-content {
@@ -535,6 +599,64 @@ section.show {
     font-weight: bold;
 }
 
+.btn-resume {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 24px;
+    background-color: #2c3e50;
+    color: #ffffff;
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    border: 2px solid #2c3e50;
+    overflow: hidden;
+    position: relative;
+}
+
+.btn-resume .btn-text {
+    z-index: 1;
+    transition: all 0.3s ease;
+}
+
+.btn-resume .btn-icon {
+    margin-left: 10px;
+    transform: translateX(-10px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.btn-resume:hover {
+    background-color: transparent;
+    color: #2c3e50;
+}
+
+.btn-resume:hover .btn-text {
+    transform: translateX(-5px);
+}
+
+.btn-resume:hover .btn-icon {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.btn-resume::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #2c3e50;
+    transform: translateX(-100%);
+    transition: all 0.3s ease;
+    z-index: 0;
+}
+
+.btn-resume:hover::before {
+    transform: translateX(0);
+}
+
 .project-links {
     margin-top: 20px;
 }
@@ -558,31 +680,22 @@ section.show {
     background-color: #ffaa00;
 }
 
-.btn {
+.btn-primary {
     display: inline-block;
-    padding: 12px 30px;
-    background-color: #ffcc00;
+    padding: 10px 20px;
+    background-color: #3498db; /* Professional blue color */
     color: #fff;
     text-decoration: none;
-    border-radius: 4px;
-    transition: background-color 0.3s;
-    font-size: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-top: 30px;
-}
-
-.btn:hover {
-    background-color: #ffaa00;
-}
-
-.btn-primary {
-    background-color: #ffcc00;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
 .btn-primary:hover {
-    background-color: #ffaa00;
+    background-color: #2980b9;
+}
+
+.btn-primary:hover {
+    background-color: #2d80b8;
 }
 
 footer {

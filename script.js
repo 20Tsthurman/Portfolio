@@ -7,6 +7,25 @@ document.querySelectorAll('nav ul li a').forEach(link => {
     });
 });
 
+document.addEventListener('DOMContentLoaded', function() {
+  // Smooth scrolling for all links with hash
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+
+          const targetId = this.getAttribute('href').substring(1);
+          const targetElement = document.getElementById(targetId);
+
+          if (targetElement) {
+              window.scrollTo({
+                  top: targetElement.offsetTop,
+                  behavior: 'smooth'
+              });
+          }
+      });
+  });
+});
+
 // scroll reveal animation to sections
 const sections = document.querySelectorAll('section');
 const options = {
@@ -42,6 +61,55 @@ function copyEmail(event) {
         emailCopyMessage.textContent = '';
     }, 2000);
 }
+
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    
+    // Update button icon
+    const icon = darkModeToggle.querySelector('i');
+    if (body.classList.contains('dark-mode')) {
+        icon.classList.remove('fa-moon');
+        icon.classList.add('fa-sun');
+    } else {
+        icon.classList.remove('fa-sun');
+        icon.classList.add('fa-moon');
+    }
+
+    // Save preference to localStorage
+    localStorage.setItem('darkMode', body.classList.contains('dark-mode'));
+});
+
+// Check for saved user preference, if any, on load of the website
+const darkModePreference = localStorage.getItem('darkMode');
+
+if (darkModePreference === 'true') {
+    body.classList.add('dark-mode');
+    darkModeToggle.querySelector('i').classList.remove('fa-moon');
+    darkModeToggle.querySelector('i').classList.add('fa-sun');
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+  const animatedElements = document.querySelectorAll('.fade-in-up');
+
+  const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+          if (entry.isIntersecting) {
+              entry.target.classList.add('animated');
+              observer.unobserve(entry.target);
+          }
+      });
+  }, {
+      threshold: 0.3
+  });
+
+  animatedElements.forEach(element => {
+      observer.observe(element);
+  });
+});
+
 // tsParticles configuration
 particlesJS('particles-js', {
     "particles": {
