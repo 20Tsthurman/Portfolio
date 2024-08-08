@@ -708,3 +708,42 @@ footer {
 footer p {
     margin: 0;
 }
+
+@media screen and (max-width: 768px) {
+    /* Styles for tablets and large phones */
+  }
+  
+  @media screen and (max-width: 480px) {
+    /* Styles for smaller phones */
+  }
+
+  @media screen and (max-width: 480px) {
+    body {
+      font-size: 16px;
+    }
+    h1 {
+      font-size: 24px;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .project-grid, .skills-container {
+      display: block;
+    }
+    .project-item, .skill-item {
+      width: 100%;
+      margin-bottom: 20px;
+    }
+  }
+  @media screen and (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+    }
+    nav ul li {
+      margin: 10px 0;
+    }
+  }
+  @media screen and (max-width: 480px) {
+    .desktop-only {
+      display: none;
+    }
+  }
