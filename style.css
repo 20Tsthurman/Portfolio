@@ -1058,8 +1058,28 @@ footer p {
 }
 
 @media screen and (max-width: 768px) {
-    /* Styles for tablets and large phones */
-  }
+    nav {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
+        border-top: 1px solid rgba(0, 0, 0, 0.1);
+        padding: 10px 0;
+    }
+
+    nav ul {
+        display: flex;
+        justify-content: space-around;
+        padding: 0 20px;
+    }
+
+    nav ul li a {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+}
   
   @media screen and (max-width: 480px) {
     /* Styles for smaller phones */
