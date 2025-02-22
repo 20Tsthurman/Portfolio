@@ -125,7 +125,7 @@ document.addEventListener('DOMContentLoaded', function() {
 particlesJS('particles-js', {
   "particles": {
     "number": {
-      "value": 80,
+      "value": 120, // increased from 80
       "density": {
         "enable": true,
         "value_area": 800
@@ -135,18 +135,18 @@ particlesJS('particles-js', {
       "value": "#cccccc"
     },
     "shape": {
-      "type": "circle",
+      "type": "star", // changed from "circle"
       "stroke": {
         "width": 0,
         "color": "#000000"
       }
     },
     "opacity": {
-      "value": 0.2,
+      "value": 0.3, // slightly increased for better visibility
       "random": false,
       "anim": {
-        "enable": false,
-        "speed": 1,
+        "enable": true, // enabled opacity animation
+        "speed": 2,     // increased speed
         "opacity_min": 0.1,
         "sync": false
       }
@@ -170,7 +170,7 @@ particlesJS('particles-js', {
     },
     "move": {
       "enable": true,
-      "speed": 1,
+      "speed": 2,  // increased speed for more dynamic motion
       "direction": "none",
       "random": false,
       "straight": false,
