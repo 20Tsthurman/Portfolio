@@ -3,335 +3,601 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tanner Thurman's Portfolio</title>
+    <title>Tanner Thurman — Software Engineer</title>
+    <meta name="description" content="Tanner Thurman is a software engineer in Nashville who builds full-stack web apps and machine-learning tools.">
+    <meta name="author" content="Tanner Thurman">
+    <meta name="theme-color" content="#efede8">
+    <link rel="canonical" href="https://www.thurmanportfolio.com/">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.thurmanportfolio.com/">
+    <meta property="og:title" content="Tanner Thurman — Software Engineer">
+    <meta property="og:description" content="Software engineer in Nashville. Full-stack web apps and machine-learning tools.">
+    <meta name="twitter:card" content="summary">
+
+    <link rel="icon" href="images/favicon.svg" type="image/svg+xml">
+
+    <script>
+        // Runs before paint: enables JS-only styles and decides whether to play the intro.
+        (function () {
+            var root = document.documentElement;
+            root.classList.add('js');
+            try {
+                var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+                if (!reduced && !sessionStorage.getItem('intro-seen')) {
+                    root.classList.add('has-intro');
+                    sessionStorage.setItem('intro-seen', '1');
+                }
+            } catch (e) {}
+        })();
+    </script>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Sans:ital,wdth,wght@0,75..100,400..700;1,75..100,400..700&family=Instrument+Serif:ital@0;1&display=swap">
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Tanner Thurman",
+        "url": "https://www.thurmanportfolio.com/",
+        "jobTitle": "Software Engineer",
+        "worksFor": { "@type": "Organization", "name": "Vanderbilt Clinical Informatics Center" },
+        "alumniOf": [
+            { "@type": "CollegeOrUniversity", "name": "Western Kentucky University" },
+            { "@type": "CollegeOrUniversity", "name": "Elizabethtown Community and Technical College" }
+        ],
+        "address": { "@type": "PostalAddress", "addressLocality": "Nashville", "addressRegion": "TN", "addressCountry": "US" },
+        "sameAs": ["https://www.linkedin.com/in/tanner-thurman/", "https://github.com/20Tsthurman"]
+    }
+    </script>
 </head>
 <body>
-    <button id="darkModeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-    </button>
-    
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+        <symbol id="asterisk" viewBox="0 0 40 40"><path d="M17 0h6v14.2l10-10 4.2 4.3-10 10H41v6H27.2l10 10-4.2 4.2-10-10V43h-6V28.7l-10 10-4.3-4.2 10-10H-1v-6h13.7l-10-10L7 4.3l10 10Z"/></symbol>
+        <symbol id="arrow" viewBox="0 0 24 24"><path d="M7 17 17 7M8 7h9v9" fill="none" stroke="currentColor" stroke-width="1.6"/></symbol>
+    </svg>
+
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <!-- Intro (first visit per session only) -->
+    <div class="intro" aria-hidden="true">
+        <span class="intro-name">Tanner Thurman</span>
+        <span class="intro-count" data-intro-count>100</span>
+    </div>
+
+    <header class="header">
+        <a class="roll header-name" href="#top"><span>Tanner Thurman</span></a>
+        <p class="header-role">Software Engineer</p>
+        <p class="header-time">Nashville, TN&nbsp;&nbsp;<span data-clock>—</span></p>
+        <nav class="header-nav" aria-label="Primary">
+            <a class="roll" href="#work"><span>Work</span></a>
+            <a class="roll" href="#about"><span>About</span></a>
+            <a class="roll" href="#experience"><span>Experience</span></a>
+            <a class="roll" href="#contact"><span>Contact</span></a>
         </nav>
+        <button class="menu-btn" type="button" aria-expanded="false" aria-controls="menu" data-menu-toggle>
+            <span class="menu-btn-open">Menu</span>
+            <span class="menu-btn-close">Close</span>
+        </button>
     </header>
 
-    <main role="main">
-        <section id="about" class="section">
-            <div id="particles-js"></div>
-            <div class="container">
-                <div class="intro-content">
-                    <h1>Tanner Thurman</h1>
-                    <p>Software Engineer at Vanderbilt | B.S. in Computer Science, Minor in Business Administration | Full Stack & AI Enthusiast</p>
-                    <a href="#portfolio" class="btn btn-primary">View My Projects</a>
+    <div class="menu" id="menu" data-menu>
+        <nav aria-label="Mobile">
+            <ol>
+                <li><a href="#work"><span>01</span>Work</a></li>
+                <li><a href="#about"><span>02</span>About</a></li>
+                <li><a href="#experience"><span>03</span>Experience</a></li>
+                <li><a href="#contact"><span>04</span>Contact</a></li>
+            </ol>
+        </nav>
+        <div class="menu-foot">
+            <a href="mailto:tsthurman03@gmail.com">tsthurman03@gmail.com</a>
+            <p>Nashville, TN&nbsp;&nbsp;<span data-clock>—</span></p>
+        </div>
+    </div>
+
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero" id="top" aria-labelledby="hero-name">
+            <canvas class="hero-dots" data-dots aria-hidden="true"></canvas>
+
+
+            <div class="hero-name-wrap" data-fit-name>
+                <h1 class="hero-name" id="hero-name" aria-label="Tanner Thurman">
+                    <span class="hero-line" aria-hidden="true"><span class="char" style="--i:0">T</span><span class="char" style="--i:1">a</span><span class="char" style="--i:2">n</span><span class="char" style="--i:3">n</span><span class="char" style="--i:4">e</span><span class="char" style="--i:5">r</span></span>
+                    <span class="hero-line" aria-hidden="true" data-fit-ref><span class="char" style="--i:6">T</span><span class="char" style="--i:7">h</span><span class="char" style="--i:8">u</span><span class="char" style="--i:9">r</span><span class="char" style="--i:10">m</span><span class="char" style="--i:11">a</span><span class="char" style="--i:12">n</span></span>
+                </h1>
+                <dl class="hero-meta">
+                    <div><dt>Currently</dt><dd>Application Developer at Vanderbilt Clinical Informatics Center</dd></div>
+                    <div><dt>Previously</dt><dd>Knobull, Western Kentucky University</dd></div>
+                </dl>
+            </div>
+
+            <div class="hero-bottom">
+                <p class="hero-label">Software engineer<br>based in Nashville, TN</p>
+                <p class="hero-intro">
+                    I build full-stack web apps and machine-learning tools. Front end, back end, data, and whatever else the project needs.
+                </p>
+            </div>
+        </section>
+
+        <!-- Marquee -->
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track" data-marquee>
+                <div class="marquee-group">
+                    <span>Python</span><svg><use href="#asterisk"/></svg>
+                    <span>Java</span><svg><use href="#asterisk"/></svg>
+                    <span>JavaScript</span><svg><use href="#asterisk"/></svg>
+                    <span>React</span><svg><use href="#asterisk"/></svg>
+                    <span>Django</span><svg><use href="#asterisk"/></svg>
+                    <span>Flask</span><svg><use href="#asterisk"/></svg>
+                    <span>TensorFlow</span><svg><use href="#asterisk"/></svg>
+                    <span>SQL</span><svg><use href="#asterisk"/></svg>
+                    <span>AWS</span><svg><use href="#asterisk"/></svg>
+                    <span>Docker</span><svg><use href="#asterisk"/></svg>
+                    <span>C#</span><svg><use href="#asterisk"/></svg>
+                    <span>Unity</span><svg><use href="#asterisk"/></svg>
+                </div>
+            </div>
+        </div>
+
+        <!-- Work -->
+        <section class="work" id="work" aria-labelledby="work-title">
+            <div class="section-head">
+                <h2 class="section-title" id="work-title" data-split>Selected work</h2>
+                <p class="section-count">(06)</p>
+                <p class="section-note">One app in production, plus school and side projects. Click a row to open it.</p>
+            </div>
+
+            <!-- Featured -->
+            <article class="featured" aria-labelledby="featured-title">
+                <div class="featured-gallery" data-gallery>
+                    <figure class="featured-shot">
+                        <img src="images/dbs-dashboard.png" loading="lazy" decoding="async" data-gallery-main
+                             alt="Digital Bloom Socials owner dashboard with the week's scheduled shoots, client retainer hours and open invoices">
+                    </figure>
+                    <div class="featured-thumbs">
+                        <button class="featured-thumb" type="button" data-gallery-thumb>
+                            <span class="sr-only">Show larger: </span>
+                            <img src="images/dbs-content.png" loading="lazy" decoding="async"
+                                 alt="Monthly content calendar in the Digital Bloom Socials portal, with posts marked as draft, in client review or released">
+                        </button>
+                        <button class="featured-thumb" type="button" data-gallery-thumb>
+                            <span class="sr-only">Show larger: </span>
+                            <img src="images/dbs-financials.png" loading="lazy" decoding="async"
+                                 alt="Bookkeeping view in the Digital Bloom Socials portal showing estimated Schedule C profit, tax set-aside and mileage deductions">
+                        </button>
+                    </div>
+                </div>
+                <div class="project-copy">
+                    <div>
+                        <p class="featured-label">Latest · In production</p>
+                        <h3 class="featured-title" id="featured-title">Digital Bloom Socials Portal</h3>
+                    </div>
+                    <p>
+                        A two-sided business platform I designed and built for a local social media and videography agency, now running its day-to-day operations. The owner portal handles scheduling, content planning, time tracking, invoicing, and bookkeeping; clients log in to review each month's content before it's released.
+                    </p>
+                    <div class="featured-features">
+                        <h4>Key features</h4>
+                        <ul>
+                            <li>Google Calendar sync with clear ownership: shoots originate in the portal and push to Google, while personal events sync back as read-only busy blocks, so nothing is entered twice</li>
+                            <li>Monthly content calendar with draft → client review → release cycles</li>
+                            <li>Client retainer budgets tracked against logged hours</li>
+                            <li>Sole-proprietor bookkeeping: Schedule C profit estimate, tax set-aside, mileage deductions, one-click CPA export package</li>
+                            <li>Stripe-connected invoicing</li>
+                        </ul>
+                    </div>
+                    <dl class="facts">
+                        <div><dt>Stack</dt><dd>Next.js, TypeScript, Supabase, PostgreSQL, Clerk, Stripe, Google Calendar API</dd></div>
+                    </dl>
+                    <a class="arrow-link" href="https://digitalbloomsocials.com" target="_blank" rel="noopener">
+                        Visit site <svg><use href="#arrow"/></svg>
+                    </a>
+                </div>
+            </article>
+
+            <div class="project-labels" aria-hidden="true">
+                <span>No.</span><span>Project</span><span>Type</span><span>Year</span>
+            </div>
+
+            <ol class="projects">
+                <!-- 01 -->
+                <li class="project">
+                    <h3 class="project-heading">
+                        <button class="project-row" type="button" aria-expanded="false" aria-controls="project-1" data-project-row>
+                            <span class="p-num">01</span>
+                            <span class="p-title">Rocket Launch Scheduling</span>
+                            <span class="p-type">Full-stack app</span>
+                            <span class="p-year">2024</span>
+                            <span class="p-toggle" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="project-detail" id="project-1" data-project-detail>
+                        <div class="project-detail-inner">
+                            <figure class="cover" data-cover>
+                                <img src="images/rocketlaunch.jpeg" width="1289" height="2478" loading="lazy" decoding="async"
+                                     alt="Rocket Launch Scheduling dashboard with launch-condition scores, live weather, a launch-site map and upcoming launches">
+                            </figure>
+                            <div class="project-copy">
+                                <p>
+                                    A launch-planning dashboard. It pulls live weather for each launch site, scores how good the conditions are, and puts it all on a map next to a filterable launch schedule and some stats.
+                                </p>
+                                <dl class="facts">
+                                    <div><dt>Stack</dt><dd>Python, Flask, React, Tailwind CSS, Leaflet</dd></div>
+                                </dl>
+                                <a class="arrow-link" href="https://github.com/20Tsthurman/RocketLaunchSchedulingTool" target="_blank" rel="noopener">
+                                    Source code <svg><use href="#arrow"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- 02 -->
+                <li class="project">
+                    <h3 class="project-heading">
+                        <button class="project-row" type="button" aria-expanded="false" aria-controls="project-2" data-project-row>
+                            <span class="p-num">02</span>
+                            <span class="p-title">WKU AI Chatbot</span>
+                            <span class="p-type">AI · Team lead</span>
+                            <span class="p-year">2024</span>
+                            <span class="p-toggle" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="project-detail" id="project-2" data-project-detail>
+                        <div class="project-detail-inner">
+                            <figure class="cover" data-cover>
+                                <svg viewBox="0 0 480 320" role="img" aria-label="Illustration of a chat conversation">
+                                    <rect width="480" height="320" fill="#c8102e"/>
+                                    <rect x="52" y="60" width="244" height="58" rx="29" fill="#efede8"/>
+                                    <rect x="82" y="83" width="160" height="12" rx="6" fill="#c8102e" opacity=".35"/>
+                                    <rect x="184" y="136" width="244" height="58" rx="29" fill="#0f0f0e"/>
+                                    <rect x="214" y="159" width="176" height="12" rx="6" fill="#efede8" opacity=".45"/>
+                                    <rect x="52" y="212" width="116" height="58" rx="29" fill="#efede8"/>
+                                    <circle cx="86" cy="241" r="7" fill="#c8102e"/>
+                                    <circle cx="110" cy="241" r="7" fill="#c8102e" opacity=".6"/>
+                                    <circle cx="134" cy="241" r="7" fill="#c8102e" opacity=".3"/>
+                                </svg>
+                            </figure>
+                            <div class="project-copy">
+                                <p>
+                                    A course assistant for Western Kentucky University. Professors upload their course material, and students can ask it questions about the class instead of waiting on an email reply. I led the team that built it.
+                                </p>
+                                <dl class="facts">
+                                    <div><dt>Role</dt><dd>Team lead</dd></div>
+                                    <div><dt>Stack</dt><dd>Python, TensorFlow, Django, JavaScript</dd></div>
+                                </dl>
+                                <a class="arrow-link" href="https://github.com/20Tsthurman/WKU-Chatbot" target="_blank" rel="noopener">
+                                    Source code <svg><use href="#arrow"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- 03 -->
+                <li class="project">
+                    <h3 class="project-heading">
+                        <button class="project-row" type="button" aria-expanded="false" aria-controls="project-3" data-project-row>
+                            <span class="p-num">03</span>
+                            <span class="p-title">Secure File Transfer</span>
+                            <span class="p-type">Security · Team lead</span>
+                            <span class="p-year">2024</span>
+                            <span class="p-toggle" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="project-detail" id="project-3" data-project-detail>
+                        <div class="project-detail-inner">
+                            <figure class="cover" data-cover>
+                                <svg viewBox="0 0 480 320" role="img" aria-label="Illustration of encrypted data behind a padlock">
+                                    <rect width="480" height="320" fill="#0f0f0e"/>
+                                    <g font-family="ui-monospace, Menlo, Consolas, monospace" font-size="13" fill="#efede8" opacity=".2">
+                                        <text x="24" y="40">8f3a 91c2 07de 4b6f a1e9 55c0 3d7b e284 0f19 c6a3</text>
+                                        <text x="24" y="64">2d71 e0b8 93fa 6c05 17d2 b94e 58a1 f3c7 4e90 0b6d</text>
+                                        <text x="24" y="88">c4e2 7a19 0fd3 b86e 21c5 9e7a 43b0 d15f 6a28 e7c1</text>
+                                        <text x="24" y="112">5b0e 3f84 a6d9 12c7 e05b 7d3a 9c61 48fe b2d0 1a95</text>
+                                        <text x="24" y="136">f1a7 06c3 d82e 5b9f 3a40 c7e1 90d6 2f8b 64a3 ed07</text>
+                                        <text x="24" y="160">39dc 8e15 b074 f6a2 1c9d 45e8 a3b7 0e62 d9f1 7c34</text>
+                                        <text x="24" y="184">a20f 6d93 1e7c 84b5 c3f0 2a6e 7b19 e5d4 0c8a 93f6</text>
+                                        <text x="24" y="208">0e4b d7a1 52f9 c80d 9b36 e1a4 36c2 7f0e a5d8 14b3</text>
+                                        <text x="24" y="232">7c58 2b0f e93d 16a7 f4c9 8d02 5e7b b1f6 03a9 cd4e</text>
+                                        <text x="24" y="256">d31e 94c6 07b8 ea52 6f1d 3c90 a8e4 1b7f 52d6 f0c3</text>
+                                        <text x="24" y="280">46a9 f0d2 8c1b 3e75 b9a0 d64f 12e8 7a3c e05d 98b1</text>
+                                        <text x="24" y="304">b8f4 1d6a c29e 70b3 4a8f e17c 6d05 93c2 f8a1 25e9</text>
+                                    </g>
+                                    <path d="M214 150v-24a26 26 0 0 1 52 0v24" fill="none" stroke="#ff4f1f" stroke-width="14"/>
+                                    <rect x="192" y="146" width="96" height="80" rx="10" fill="#ff4f1f"/>
+                                    <circle cx="240" cy="178" r="9" fill="#0f0f0e"/>
+                                    <rect x="236" y="182" width="8" height="22" rx="4" fill="#0f0f0e"/>
+                                </svg>
+                            </figure>
+                            <div class="project-copy">
+                                <p>
+                                    A file-sharing web app where everything is AES-encrypted. Files go over a direct TCP connection that a Flask server sets up between users, and there's built-in messaging so you can tell someone what you just sent them.
+                                </p>
+                                <dl class="facts">
+                                    <div><dt>Role</dt><dd>Team lead</dd></div>
+                                    <div><dt>Stack</dt><dd>Python, Flask, AES encryption, TCP sockets</dd></div>
+                                </dl>
+                                <a class="arrow-link" href="https://github.com/20Tsthurman/SecureFileTransfer" target="_blank" rel="noopener">
+                                    Source code <svg><use href="#arrow"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- 04 -->
+                <li class="project">
+                    <h3 class="project-heading">
+                        <button class="project-row" type="button" aria-expanded="false" aria-controls="project-4" data-project-row>
+                            <span class="p-num">04</span>
+                            <span class="p-title">ELearning Platform</span>
+                            <span class="p-type">Web app · Team lead</span>
+                            <span class="p-year">2023</span>
+                            <span class="p-toggle" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="project-detail" id="project-4" data-project-detail>
+                        <div class="project-detail-inner">
+                            <figure class="cover" data-cover>
+                                <svg viewBox="0 0 480 320" role="img" aria-label="Illustration of a grade chart and a quiz checklist">
+                                    <rect width="480" height="320" fill="#2b3bff"/>
+                                    <path d="M48 262h232" stroke="#efede8" stroke-width="3"/>
+                                    <rect x="56" y="178" width="30" height="84" fill="#efede8" opacity=".55"/>
+                                    <rect x="98" y="138" width="30" height="124" fill="#efede8" opacity=".55"/>
+                                    <rect x="140" y="160" width="30" height="102" fill="#efede8" opacity=".55"/>
+                                    <rect x="182" y="96" width="30" height="166" fill="#efede8"/>
+                                    <rect x="224" y="120" width="30" height="142" fill="#efede8" opacity=".55"/>
+                                    <rect x="312" y="58" width="128" height="204" rx="10" fill="#efede8"/>
+                                    <circle cx="340" cy="94" r="11" fill="#2b3bff"/>
+                                    <path d="m334 94 4 4 8-8" fill="none" stroke="#efede8" stroke-width="3"/>
+                                    <rect x="360" y="89" width="60" height="10" rx="5" fill="#0f0f0e" opacity=".2"/>
+                                    <circle cx="340" cy="136" r="11" fill="#2b3bff"/>
+                                    <path d="m334 136 4 4 8-8" fill="none" stroke="#efede8" stroke-width="3"/>
+                                    <rect x="360" y="131" width="48" height="10" rx="5" fill="#0f0f0e" opacity=".2"/>
+                                    <circle cx="340" cy="178" r="10" fill="none" stroke="#0f0f0e" stroke-opacity=".3" stroke-width="2"/>
+                                    <rect x="360" y="173" width="56" height="10" rx="5" fill="#0f0f0e" opacity=".2"/>
+                                    <rect x="328" y="218" width="96" height="24" rx="12" fill="#0f0f0e"/>
+                                </svg>
+                            </figure>
+                            <div class="project-copy">
+                                <p>
+                                    A small learning management system. Teachers post lessons, videos, assignments and quizzes, then grade them with a gradebook and charts. Students take quizzes and watch their grades update. There's a discussion board too.
+                                </p>
+                                <dl class="facts">
+                                    <div><dt>Role</dt><dd>Team lead</dd></div>
+                                    <div><dt>Stack</dt><dd>Python, Django, JavaScript</dd></div>
+                                </dl>
+                                <a class="arrow-link" href="https://github.com/20Tsthurman/education-website" target="_blank" rel="noopener">
+                                    Source code <svg><use href="#arrow"/></svg>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- 05 -->
+                <li class="project">
+                    <h3 class="project-heading">
+                        <button class="project-row" type="button" aria-expanded="false" aria-controls="project-5" data-project-row>
+                            <span class="p-num">05</span>
+                            <span class="p-title">Student Database</span>
+                            <span class="p-type">Database design</span>
+                            <span class="p-year">2023</span>
+                            <span class="p-toggle" aria-hidden="true"></span>
+                        </button>
+                    </h3>
+                    <div class="project-detail" id="project-5" data-project-detail>
+                        <div class="project-detail-inner">
+                            <figure class="cover" data-cover>
+                                <svg viewBox="0 0 480 320" role="img" aria-label="Illustration of three linked database tables">
+                                    <rect width="480" height="320" fill="#ff4f1f"/>
+                                    <path d="M198 116h42V88h42M357 136v64M123 176v66h77" fill="none" stroke="#0f0f0e" stroke-width="3"/>
+                                    <g>
+                                        <rect x="48" y="56" width="150" height="120" fill="#efede8"/>
+                                        <rect x="48" y="56" width="150" height="28" fill="#0f0f0e"/>
+                                        <rect x="62" y="66" width="56" height="8" fill="#ff4f1f"/>
+                                        <rect x="62" y="100" width="70" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="146" y="100" width="38" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="62" y="124" width="56" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="146" y="124" width="38" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="62" y="148" width="76" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="146" y="148" width="38" height="8" fill="#0f0f0e" opacity=".25"/>
+                                    </g>
+                                    <g>
+                                        <rect x="282" y="40" width="150" height="96" fill="#efede8"/>
+                                        <rect x="282" y="40" width="150" height="28" fill="#0f0f0e"/>
+                                        <rect x="296" y="50" width="44" height="8" fill="#ff4f1f"/>
+                                        <rect x="296" y="84" width="70" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="380" y="84" width="38" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="296" y="108" width="54" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="380" y="108" width="38" height="8" fill="#0f0f0e" opacity=".25"/>
+                                    </g>
+                                    <g>
+                                        <rect x="200" y="200" width="176" height="84" fill="#efede8"/>
+                                        <rect x="200" y="200" width="176" height="28" fill="#0f0f0e"/>
+                                        <rect x="214" y="210" width="62" height="8" fill="#ff4f1f"/>
+                                        <rect x="214" y="244" width="84" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="316" y="244" width="46" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="214" y="264" width="64" height="8" fill="#0f0f0e" opacity=".25"/>
+                                        <rect x="316" y="264" width="46" height="8" fill="#0f0f0e" opacity=".25"/>
+                                    </g>
+                                </svg>
+                            </figure>
+                            <div class="project-copy">
+                                <p>
+                                    A MySQL database for university student records: IDs, enrollment, tuition and academic progress. Built with a team as a database design project at WKU.
+                                </p>
+                                <dl class="facts">
+                                    <div><dt>Role</dt><dd>Team member</dd></div>
+                                    <div><dt>Stack</dt><dd>MySQL, SQL, data modeling</dd></div>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+            </ol>
+
+            <p class="work-more">
+                More on <a class="arrow-link" href="https://github.com/20Tsthurman" target="_blank" rel="noopener">GitHub <svg><use href="#arrow"/></svg></a>
+            </p>
+        </section>
+
+        <!-- About -->
+        <section class="about" id="about" aria-labelledby="about-title">
+            <h2 class="label" id="about-title">(About)</h2>
+
+            <p class="about-statement" data-words>
+                I like owning the <em>whole stack,</em> from how the data is stored to how the product <em>feels</em> to use.
+            </p>
+
+            <div class="about-body">
+                <div class="about-bio">
+                    <p>
+                        I'm an application developer at the Vanderbilt Clinical Informatics Center, where I build web apps and machine-learning tools for research teams. Some are quick prototypes, some run in production.
+                    </p>
+                    <p>
+                        Before that I interned at Knobull, working on a meta search engine with Java, AWS and OpenSearch, and finished a CS degree at Western Kentucky University, where I led a few of the projects above.
+                    </p>
+                    <p>
+                        When I'm not at work there's usually a side project going on my GitHub.
+                    </p>
+                </div>
+
+                <div class="toolbox">
+                    <h3 class="label">(Toolbox)</h3>
+                    <div class="toolbox-grid">
+                        <div>
+                            <h4>Languages</h4>
+                            <ul><li>Python</li><li>Java</li><li>JavaScript</li><li>C#</li><li>SQL</li><li>HTML &amp; CSS</li></ul>
+                        </div>
+                        <div>
+                            <h4>Frameworks</h4>
+                            <ul><li>React</li><li>Node.js</li><li>Django</li><li>Flask</li><li>Tailwind CSS</li></ul>
+                        </div>
+                        <div>
+                            <h4>Data &amp; ML</h4>
+                            <ul><li>TensorFlow</li><li>MySQL</li><li>PostgreSQL</li><li>OpenSearch</li><li>Elasticsearch</li></ul>
+                        </div>
+                        <div>
+                            <h4>Tools</h4>
+                            <ul><li>Git</li><li>Docker</li><li>AWS</li><li>Unity</li><li>VS Code</li></ul>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>
 
-    <section id="portfolio">
-        <div class="container fade-in-up">
-            <h2>My Work</h2>
-            <div class="project-grid">
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="images/ELearning.png" alt="ELearning Website">
-                    </div>
-                    <div class="project-details">
-                        <h3>ELearning Website</h3>
-                        <p>Website for teachers to upload lessons, videos, assignments, and quizzes. Teachers gain full access to students grades with grading tool and graphs. Students can view assignments, take quizzes, and even view their own grade as it updates.</p>
-                        <p>Key features:</p>
-                        <ul>
-                            <li>Grading system</li>
-                            <li>Quiz creation tool for teachers</li>
-                            <li>Teachers can view all students grades, while students can only view their own</li>
-                        </ul>
-                        <div class="project-links">
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="images/WKU chatbot.png" alt="Western Kentucky University AGI Chatbot">
-                    </div>
-                    <div class="project-details">
-                        <h3>Western Kentucky University AGI Chatbot</h3>
-                        <p>The chatbot is a customizable course aid that assists professors and students in their everyday needs. Students can ask questions related to course work provided by the teacher.</p>
-                        <p>Key features:</p>
-                        <ul>
-                            <li>Answer course related questions for students</li>
-                            <li>Reduce emails sent to professors</li>
-                            <li>AGI able to assist in any questions or assignments it is asked</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="images/SecureFileTransfer.png" alt="Secure File Transfer">
-                    </div>
-                    <div class="project-details">
-                        <h3>Secure File Transfer</h3>
-                        <p>This project provides a secure method of transferring files between systems, ensuring data integrity and confidentiality. It's designed to help users share sensitive information securely over the internet.</p>
-                        <p>Key features:</p>
-                        <ul>
-                            <li>End-to-end encryption to ensure data privacy</li>
-                            <li>Supports large file transfers with minimal speed loss</li>
-                            <li>User authentication to prevent unauthorized access</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="project-downloads/SecureFileTransfer.zip" download>Download</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="images/rocketlaunch.jpeg" alt="Rocket Launch Scheduling">
-                    </div>
-                    <div class="project-details">
-                        <h3>Rocket Launch Scheduling</h3>
-                        <p>A full-stack web application for rocket launch scheduling with real-time weather monitoring and launch planning capabilities.</p>
-                        <ul>
-                            <li>Real-time weather monitoring</li>
-                            <li>Interactive launch site map</li>
-                            <li>Comprehensive scheduling system</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="images/Sonic.png" alt="Sonic The Hog Game">
-                    </div>
-                    <div class="project-details">
-                        <h3>Sonic The Hog</h3>
-                        <p>This Unity-based project recreates the classic gameplay experience with a twist, featuring Sonic in a dynamic and interactive environment. It's designed to entertain players while showcasing robust game development techniques.</p>
-                        <p>Key features:</p>
-                        <ul>
-                            <li>Classic side-scrolling action with modern graphics</li>
-                            <li>Created using modern tools such as Unity and C#</li>
-                            <li>Interactive game mechanics and enemy AI</li>
-                        </ul>
-                        <div class="project-links">
-                            <a href="project-downloads/sonic-the-hog-main.zip" download>Download</a>
-                        </div>
-                    </div>
-                </div>                                              
-                <div class="project-item">
-                    <div class="project-image">
-                        <img src="images/student-database-screenshot.png" alt="Student Database">
-                    </div>
-                    <div class="project-details">
-                        <h3>Student Database</h3>
-                        <p>The Student Database project is a SQL-based database management system that allows efficient storage and retrieval of student information. It provides a structured way to organize and manage student records, including personal details, enrollment information, and academic progress.</p>
-                        <p>Key features:</p>
-                        <ul>
-                            <li>Secure storage of student data</li>
-                            <li>Easy retrieval and querying of student records</li>
-                            <li>Efficient data management and organization</li>
-                        </ul>
-                    </div>
-                </div>
+        <!-- Experience + Education -->
+        <section class="background" id="experience" aria-labelledby="experience-title">
+            <div class="section-head">
+                <h2 class="section-title" id="experience-title" data-split>Experience</h2>
+                <p class="section-count">(02)</p>
             </div>
-        </div>
-    </section>
 
-    <section id="skills">
-        <div class="container fade-in-up">
-            <h2>Skills</h2>
-            <div class="project-item skills-wrapper">
-                <div class="skills-container">
-                    <div class="skill-row">
-                        <div class="skill-item">
-                            <img src="images/Java.png" alt="Java">
-                            <p>Java</p>
-                        </div>
-                    <div class="skill-item">
-                        <img src="images/Python.png" alt="Python">
-                        <p>Python</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/React.png" alt="React">
-                        <p>React</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/nodejs.png" alt="NodeJs">
-                        <p>NodeJs</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/CSharp.png" alt="C#">
-                        <p>C#</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/Unity.png" alt="Unity">
-                        <p>Unity</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/HTML.svg" alt="HTML">
-                        <p>HTML</p>
-                    </div>
-                </div>
-                <div class="skill-row">
-                    <div class="skill-item">
-                        <img src="images/CSS.png" alt="CSS">
-                        <p>CSS</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/JavaScript.png" alt="JavaScript">
-                        <p>JavaScript</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/MYSQL.png" alt="SQL">
-                        <p>SQL</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/Docker.png" alt="Docker">
-                        <p>Docker</p>
-                    </div>
-                    <div class="skill-item">
-                        <img src="images/Git.png" alt="Git">
-                        <p>Git</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="experience">
-        <div class="container fade-in-up">
-            <h2>Professional Experience</h2>
-            <div class="experience-timeline">
-                <div class="experience-item">
-                    <div class="experience-header">
+            <ol class="rows">
+                <li class="row">
+                    <p class="row-when">2024 – Now</p>
+                    <div class="row-what">
                         <h3>Associate Application Developer</h3>
-                        <div class="company-info">
-                            <span class="company">Vanderbilt Clinical Informatics Center</span>
-                            <span class="duration">8/24 - Present</span>
-                        </div>
+                        <p>Vanderbilt Clinical Informatics Center</p>
                     </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Developed and supported research and operational initiatives at VCLIC as an Associate Application Developer.</li>
-                            <li>Conducted full-stack development for both prototype and production applications.</li>
-                            <li>Participated as a key member of the research team, contributing to software design and architecture.</li>
-                            <li>Assisted in designing and implementing innovative software solutions for research projects.</li>
-                        </ul>
-                    </div>
-                </div>
-    
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3>Full Stack Developer Intern</h3>
-                        <div class="company-info">
-                            <span class="company">Knobull</span>
-                            <span class="duration">12/23 - 7/24</span>
-                        </div>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Developed a mini search engine using Java, ensuring optimal functionality and scalability.</li>
-                            <li>Collaborated with the development team to implement best practices and coding standards.</li>
-                            <li>Offered the position of team lead based on exceptional performance and leadership skills.</li>
-                        </ul>
-                    </div>
-                </div>
-    
-                <div class="experience-item">
-                    <div class="experience-header">
-                        <h3>Pharmacy Technician</h3>
-                        <div class="company-info">
-                            <span class="company">Kroger Pharmacy</span>
-                            <span class="duration">05/20 - Present</span>
-                        </div>
-                    </div>
-                    <div class="experience-details">
-                        <ul>
-                            <li>Processed patient insurance claims and resolved billing issues.</li>
-                            <li>Developed excellent communication skills while interacting with patients and healthcare professionals.</li>
-                            <li>Maintained accurate inventory records and assisted in medication dispensing.</li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="education">
-        <div class="container fade-in-up">
-            <h2>My Education</h2>
-            <div class="education-block">
-                <img src="images/wku-logo.png" alt="Western Kentucky University Logo" class="university-logo">
-                <div class="education-details">
-                    <h3>Bachelor of Computer Science</h3>
-                    <p class="institution">Western Kentucky University</p>
-                    <p class="graduation-year">Graduated in 2024</p>
-                    <p class="gpa">GPA 3.5/4.0</p>
-                    <ul class="achievements">
-                        <li>Major in Computer Science</li>
-                        <li>Minor in Business Management</li>
-                        <li>School of Engineering and Applied Sciences Ambassador - 2023-24</li>
+                    <p class="row-where">Nashville, TN</p>
+                    <ul class="row-notes">
+                        <li>Built internal tools that have doubled patient-care efficiency at VUMC.</li>
+                        <li>Develop machine-learning models that predict health outcomes.</li>
+                        <li>Work on both prototypes and production apps, and help make design and architecture calls with the research team.</li>
                     </ul>
-                </div>
-            </div>
-            <div class="education-block">
-                <img src="images/ectc-logo.png" alt="Elizabethtown Community and Technical College Logo" class="university-logo">
-                <div class="education-details">
-                    <h3>Associate of Business Administration</h3>
-                    <p class="institution">Elizabethtown Community and Technical College</p>
-                    <p class="graduation-year">Graduated in 2021</p>
-                    <p class="gpa">GPA 3.9/4.0</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="contact">
-        <div class="container fade-in-up">
-            <h2>Contact Me</h2>
-            <div class="contact-content">
-                <div class="contact-info">
-                    <h3>Let's Connect!</h3>
-                    <p>Feel free to reach out for collaborations, inquiries, or just a friendly chat.</p>
-                    <div class="contact-details">
-                        <p><i class="fas fa-envelope"></i> Email: <a href="#" onclick="copyEmail(event)">tsthurman03@gmail.com</a></p>
-                        <p id="email-copy-message"></p>
+                </li>
+                <li class="row">
+                    <p class="row-when">2023 – 2024</p>
+                    <div class="row-what">
+                        <h3>Full Stack Developer Intern</h3>
+                        <p>Knobull</p>
                     </div>
-                </div>
-                <div class="contact-social">
-                    <h3>Connect with Me</h3>
-                    <div class="social-icons">
-                        <a href="https://www.linkedin.com/in/tanner-thurman/" target="_blank" aria-label="Visit my LinkedIn profile">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://github.com/20Tsthurman" target="_blank" aria-label="Visit my GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                        <a href="project-downloads/Tanner Resume.pdf" download class="btn btn-resume">
-                            <span class="btn-text">Download Resume</span>
-                            <span class="btn-icon"><i class="fas fa-file-download"></i></span>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                    <p class="row-where">Remote</p>
+                    <ul class="row-notes">
+                        <li>Worked on a meta search engine, including a smaller search engine written in Java.</li>
+                        <li>Back-end work on AWS with OpenSearch and Elasticsearch.</li>
+                        <li>Got offered the team lead role before the internship wrapped up.</li>
+                    </ul>
+                </li>
+            </ol>
 
-    <footer>
-        <div class="container">
-            <footer>
-                <p>Tanner Thurman</p>
-                <p>Software Engineer | B.S. Computer Science</p>
-                <p>&copy; 2024</p>
-            </footer>
+            <div class="section-head section-head--sub">
+                <h2 class="section-title" data-split>Education</h2>
+                <p class="section-count">(02)</p>
+            </div>
+
+            <ol class="rows">
+                <li class="row">
+                    <p class="row-when">2024</p>
+                    <div class="row-what">
+                        <h3>B.S. Computer Science</h3>
+                        <p>Western Kentucky University</p>
+                    </div>
+                    <p class="row-where">Bowling Green, KY</p>
+                    <ul class="row-notes">
+                        <li>Minor in Business Administration. GPA 3.5.</li>
+                        <li>School of Engineering and Applied Sciences Ambassador, 2023–24.</li>
+                    </ul>
+                </li>
+                <li class="row">
+                    <p class="row-when">2021</p>
+                    <div class="row-what">
+                        <h3>Associate of Business Administration</h3>
+                        <p>Elizabethtown Community &amp; Technical College</p>
+                    </div>
+                    <p class="row-where">Elizabethtown, KY</p>
+                    <ul class="row-notes">
+                        <li>GPA 3.9.</li>
+                    </ul>
+                </li>
+            </ol>
+        </section>
+    </main>
+
+    <!-- Contact -->
+    <footer class="contact" id="contact" aria-labelledby="contact-title">
+        <div class="contact-top">
+            <h2 class="label" id="contact-title">(Contact)</h2>
+            <p class="contact-lede">Open to new roles and interesting projects. Email is the best way to reach me.</p>
+        </div>
+
+        <a class="contact-email" href="mailto:tsthurman03@gmail.com" data-fit-email>
+            <span>tsthurman03@gmail.com</span>
+        </a>
+
+        <div class="contact-links">
+            <a class="arrow-link" href="https://www.linkedin.com/in/tanner-thurman/" target="_blank" rel="noopener">LinkedIn <svg><use href="#arrow"/></svg></a>
+            <a class="arrow-link" href="https://github.com/20Tsthurman" target="_blank" rel="noopener">GitHub <svg><use href="#arrow"/></svg></a>
+            <a class="arrow-link" href="project-downloads/Tanner%20Resume.pdf" target="_blank" rel="noopener">Résumé <svg><use href="#arrow"/></svg></a>
+            <button class="copy-btn" type="button" data-copy="tsthurman03@gmail.com">
+                <span class="copy-idle">Copy email</span>
+                <span class="copy-done" aria-hidden="true">Copied</span>
+            </button>
+        </div>
+
+        <div class="footer-bottom">
+            <p>© <span data-year>2026</span> Tanner Thurman</p>
+            <p>Nashville, TN&nbsp;&nbsp;<span data-clock>—</span></p>
+            <a class="roll" href="#top"><span>Back to top</span></a>
         </div>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
-    <script src="script.js"></script>
+
+    <p class="sr-only" role="status" aria-live="polite" data-live></p>
+
+    <div class="preview" aria-hidden="true" data-preview></div>
+
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/gsap.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/ScrollTrigger.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.15.0/dist/SplitText.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/lenis@1.3.26/dist/lenis.min.js" defer></script>
+    <script src="script.js" defer></script>
 </body>
 </html>
